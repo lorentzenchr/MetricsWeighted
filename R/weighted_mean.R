@@ -1,11 +1,11 @@
 #' Weighted Mean
 #'
-#' Returns weighted mean of a numeric vector. In contrast to \code{stats::weighted.mean}, \code{w} does not need to be specified.
+#' Returns weighted mean of a numeric vector.
 #'
-#' @importFrom stats weighted.mean
+#' @importFrom matrixStats weightedMean
 #' @param x Numeric vector.
 #' @param w Optional non-negative, non-missing case weights.
-#' @param ... Further arguments passed to \code{mean} or \code{weighted.mean}.
+#' @param ... Further arguments passed to \code{mean} or \code{matrixStats::weightedMean}.
 #' @return A length-one numeric vector.
 #' @export
 #' @examples
@@ -17,9 +17,8 @@ weighted_mean <- function(x, w = NULL, ...) {
   if (is.null(w)) {
     return(mean(x, ...))
   }
-  stopifnot(all(w >= 0), length(x) == length(w))
-  if (all(w == 0)) {
-    stop("All weights are zero")
+  if (is.logical(x)) {
+    x <- as.numeric(x)
   }
-  weighted.mean(x, w = w, ...)
+  weightedMean(x, w = w, ...)
 }

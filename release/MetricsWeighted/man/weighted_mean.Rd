@@ -11,13 +11,13 @@ weighted_mean(x, w = NULL, ...)
 
 \item{w}{Optional non-negative, non-missing case weights.}
 
-\item{...}{Further arguments passed to \code{mean} or \code{weighted.mean}.}
+\item{...}{Further arguments passed to \code{mean} or \code{matrixStats::weightedMean}.}
 }
 \value{
 A length-one numeric vector.
 }
 \description{
-Returns weighted mean of a numeric vector. In contrast to \code{stats::weighted.mean}, \code{w} does not need to be specified.
+Returns weighted mean of a numeric vector.
 }
 \examples{
 weighted_mean(1:10)

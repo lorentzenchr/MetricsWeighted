@@ -1,3 +1,7 @@
+# MetricsWeighted 0.4.1
+
+Switched from "stats::weighted.mean" to "matrixStats::weightedMean"" as backend for calculating weighted means.
+
 # MetricsWeighted 0.4.0
 
 ## New functions
